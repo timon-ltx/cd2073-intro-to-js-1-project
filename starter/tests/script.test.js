@@ -1,5 +1,5 @@
 const cart = require('../src/assets/script.js');
-
+console.log(cart)
 describe('Cart Functionality Tests', () => {
     let product1 = cart.products[1];
     let cartArr = cart.cart;
