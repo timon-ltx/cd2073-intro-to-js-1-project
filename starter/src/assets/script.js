@@ -21,7 +21,7 @@ const cherry = {
   quantity: 0,
   productId: '100',
   image: './images/cherry.jpg'
-}
+};
 
 const orange = {
   name: 'orange',
@@ -29,7 +29,7 @@ const orange = {
   quantity: 0,
   productId: '101',
   image: './images/orange.jpg'
-}
+};
 
 const strawberry = {
   name: 'strawberry',
@@ -37,7 +37,7 @@ const strawberry = {
   quantity: 0,
   productId: '102',
   image: './images/strawberry.jpg'
-}
+};
 
 const products = [cherry, orange, strawberry]
 
