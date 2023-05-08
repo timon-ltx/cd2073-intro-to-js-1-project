@@ -55,7 +55,6 @@ function get_product(productId, array){
   // this is our guard
   product = -1
   if (array_guard(array)){
-    console.log(array, productId, "hihu")
     array.forEach(function id(element){ 
     if (element.productId.toString() === productId.toString()){
       // if the product is already in the cart
@@ -90,16 +89,14 @@ function get_quantity_in_cart(productId, cart){
     return 0
     }
     element = get_product(productId, cart)
-    console.log(element)
     if (element === 0){
-      return -1
-    } else {
       value = element.quantity
+    } else {
+      return -1
     }
   } else {    
     value = 0
   }
-  console.log(value)
   return value
 }
 
@@ -113,16 +110,14 @@ function get_quantity_in_cart(productId, cart){
 // addProductToCart a second time does not append the item twice (2 ms)
 function addProductToCart(productId){
   quantity = get_quantity_in_cart(productId, cart)
-  console.log(productId, quantity, "huhu")
   if (quantity === 0){
     element = get_product(productId, products)
     cart.push(element);
     element = get_product(productId, cart)
     element.quantity += 1;
-  } else if (quantity >= 1) {
+  } else if (quantity <= 1) {
     element = get_product(productId, cart)
     // if the product is not in the card, push it to cart array
-    console.log("look for -1 " +element)
     if (element === -1) {
       element = get_product(productId, products)
       cart.push(element);
@@ -132,9 +127,7 @@ function addProductToCart(productId){
       // if the product is already in the card, just increase the quantity
       element.quantity += 1;
     }
-  } else {
-    console.log("foo")
-  }
+  } 
 } 
   // return cart
 
@@ -154,7 +147,6 @@ function increaseQuantity(productId){
       // if the function decreases the quantity to 0, the product is removed from the cartconst index = myArray.indexOf(2);*/
 function decreaseQuantity(productId){
   element = get_product(productId, cart)
-  console.log(element.quantity)
   element.quantity -= 1;
   if (element.quantity === 0){
     const index = cart.indexOf(element);
@@ -207,7 +199,7 @@ function pay(amount){
 function customer object*/
 // consider getting values from api https://exchangeratesapi.io/
 
-function currency(symbol){
+/* function currency(symbol){
   // convert to reference  
   switch(symbol){
     case 'EUR':
@@ -240,7 +232,7 @@ function currency(symbol){
       default:
         break;
     }
-}}
+}}*/
 
 
 
@@ -283,5 +275,5 @@ module.exports = {
    pay,
    emptyCart,
    /* Uncomment the following line if completing the currency converter bonus */
-   currency
+   // currency
 }

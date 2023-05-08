@@ -78,8 +78,7 @@ document.querySelector('.cart').addEventListener('click', (e) => {
     function runCartFunction(fn) {
         let productId = e.target.parentNode.getAttribute('data-productId');
         productId *= 1;
-        for (let i = cart.length - 1; i > -1; i--) {
-            if (cart[i].productId === productId) {
+        for (let i = cart.length - 1; i > -1; i--) {if (cart[i].productId === productId.toString()) {
                 let productId = cart[i].productId;
                 fn(productId);
             }
@@ -158,7 +157,7 @@ document.querySelector('.empty-btn').addEventListener('click', (e) => {
 /* End all items from cart */
 
 /* Begin currency converter */
-function currencyBuilder(){
+/*function currencyBuilder(){
     let currencyPicker = document.querySelector('.currency-selector');
     let select = document.createElement("select");
     select.classList.add("currency-select");
@@ -167,9 +166,9 @@ function currencyBuilder(){
                         <option value="YEN">YEN</option>`;
     currencyPicker.append(select);
 }
-currencyBuilder();
+currencyBuilder();*/
 
-document.querySelector('.currency-select').addEventListener('change', function handleChange(event) {
+/*document.querySelector('.currency-select').addEventListener('change', function handleChange(event) {
     switch(event.target.value){
         case 'EUR':
             currencySymbol = '€';
@@ -186,6 +185,6 @@ document.querySelector('.currency-select').addEventListener('change', function h
     drawProducts();
     drawCart();
     drawCheckout();
-});
+});*/
 /* End currency converter */
 /* End standout suggestions */
