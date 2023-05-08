@@ -44,9 +44,9 @@ const products = [cherry, orange, strawberry]
 function array_guard (array) {
   if (array) {
     if (array.length <= 0) {
-      return false
+      return false;
     }
-    return true
+    return true;
   }
 }
 
@@ -63,15 +63,15 @@ function get_product (productId, array) {
         } else {
           // this will be the case if the product is not yet in the cart
           // and the cart already has a product (length is greater than 0)
-          return -1
+          return -1;
         }
       }
     })
     // lesson learned: return statement needs to be
     // outside the foreach function
-    return product
+    return product;
   }
-  return 0
+  return 0;
 }
 
 /* Declare an empty array named cart to hold the items in the cart */
@@ -85,18 +85,18 @@ function get_quantity_in_cart (productId, cart) {
   // if cart passed our guard, add product to cart
   if (cart) {
     if (cart.length <= 0) {
-      return 0
+      return 0;
     }
     element = get_product(productId, cart)
     if (element === 0) {
       value = element.quantity
     } else {
-      return -1
+      return -1;
     }
   } else {
     value = 0
   }
-  return value
+  return value;
 }
 
 /* Create a function named addProductToCart that takes in the product productId as an argument */
@@ -123,7 +123,7 @@ function addProductToCart (productId) {
       element.quantity += 1
     } else {
       // if the product is already in the card, just increase the quantity
-      element.quantity += 1
+      element.quantity += 1;
     }
   }
 }
@@ -136,7 +136,7 @@ function addProductToCart (productId) {
 // in the cart
 function increaseQuantity (productId) {
   element = get_product(productId, cart)
-  element.quantity += 1
+  element.quantity += 1;
 }
 
 /* Create a function named decreaseQuantity that takes in the productId as an argument 
@@ -148,7 +148,7 @@ function decreaseQuantity (productId) {
   element.quantity -= 1
   if (element.quantity === 0) {
     const index = cart.indexOf(element)
-    cart.splice(index, 1)
+    cart.splice(index, 1);
   }
 }
 
@@ -160,7 +160,7 @@ function removeProductFromCart (productId) {
   element = get_product(productId, cart)
   element.quantity = 0
   const index = cart.indexOf(element)
-  cart.splice(index, 1)
+  cart.splice(index, 1);
 }
 
 /* Create a function named cartTotal that has no parameters */
@@ -171,19 +171,19 @@ function cartTotal () {
     sum += parseInt(element.price) * element.quantity
     // cartTotal should return the sum of the products in the cart
   })
-  return sum
+  return sum;
 }
 
 /* Create a function called emptyCart that empties the products from the cart */
 function emptyCart () {
-  cart = []
+  cart = [];
 }
 
 /* Create a function named pay that takes in an amount as an argument */
 function pay (amount) {
   // pay will return a negative number if there is a remaining balance
   // pay will return a positive number if money should be returned to customer
-  return amount - cartTotal()
+  return amount - cartTotal();
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
