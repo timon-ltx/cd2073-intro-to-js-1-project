@@ -178,12 +178,18 @@ function cartTotal () {
 function emptyCart () {
   cart = [];
 }
-
+/* The pay(amount) method is not working as expected
+Please create a global variable called totalPaid*/
+let totalPaid = 0;
 /* Create a function named pay that takes in an amount as an argument */
 function pay (amount) {
   // pay will return a negative number if there is a remaining balance
   // pay will return a positive number if money should be returned to customer
-  return amount - cartTotal();
+  value = amount - cartTotal()
+  if (value > 0) {
+    totalPaid += value
+  }
+  return value;
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
