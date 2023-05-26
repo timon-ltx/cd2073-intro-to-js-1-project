@@ -185,11 +185,15 @@ let totalPaid = 0;
 function pay (amount) {
   // pay will return a negative number if there is a remaining balance
   // pay will return a positive number if money should be returned to customer
+  // Set the totalPaid + the amount received.
+  totalPaid += amount;
+  // return the totalPaid - the cartTotal().
+  return totalPaid - cartTotal();
   value = amount - cartTotal()
-  if (value > 0) {
+  /*if (value > 0) {
     totalPaid += value
   }
-  return value;
+  return value;*/
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
